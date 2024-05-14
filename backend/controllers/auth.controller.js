@@ -16,6 +16,12 @@ export const signup = async (req, res) => {
     if (existedEmail) {
       return res.status(400).json({ error: 'email already exists' });
     }
+    if (!fullName) {
+      return res.status(400).json({ error: 'Full name is required' });
+    }
+    if (!username) {
+      return res.status(400).json({ error: 'Username is required' });
+    }
     if (password.length < 6) {
       return res
         .status(400)

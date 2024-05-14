@@ -2,6 +2,7 @@ import express from 'express';
 const app = express();
 import authRouter from './routes/auth.routes.js';
 import userRoutes from './routes/user.routes.js';
+import posts from './routes/posts.routes.js';
 import { v2 as cloudinary } from 'cloudinary';
 import { connect } from './db/connect.js';
 import dotenv from 'dotenv';
@@ -27,3 +28,4 @@ const start = async () => {
 start();
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRoutes);
+app.use('/api/posts', posts);
